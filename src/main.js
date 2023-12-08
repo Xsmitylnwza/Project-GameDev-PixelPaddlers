@@ -1,8 +1,8 @@
 import 'phaser';
 import Phaser from 'phaser';
-import GameScene from './scenes/GameScene';
-import MainMenu from './scenes/MainMenu';
-import GameOver from './scenes/GameOver';
+import GameScene from './scene/GameScene';
+import MainMenu from './scene/MainMenu';
+import GameOver from './scene/GameOver';
 
 const config = {
     type : Phaser.AUTO,
