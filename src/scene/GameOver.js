@@ -7,11 +7,13 @@ class GameOver extends Phaser.Scene {
         });
         this.bg
         this.retryButton
+        this.endbgMusic
     }
 
     preload() {
         this.load.image('bg-gameover', "assets/PNG/elements/gameover.png")
         this.load.image('retryButton',"assets/PNG/elements/retrybotton.png")
+        this.load.audio('endbgMusic', "assets/Sound/gameover.mp3");
     }
 
     create() {
@@ -34,6 +36,17 @@ class GameOver extends Phaser.Scene {
             this.retryButton.setScale(0.2);
         })
 
+        this.endbgMusic = this.sound.add('endbgMusic');
+        var endbgMusicConfig = {
+            mute: false,
+            volume: 0.5,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0
+        }
+        this.endbgMusic.play(endbgMusicConfig)
         
     }
 
