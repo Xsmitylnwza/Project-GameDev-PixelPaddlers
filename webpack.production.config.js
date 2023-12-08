@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Phaser webpack config
 var phaserModule = path.join(__dirname, '/node_modules/phaser/')
@@ -48,9 +49,9 @@ module.exports = {
       hash: true
     }),
     new CopyWebpackPlugin([
-            { from: './src/image', to: './src/image'},
-            { from: './src/sound', to: './src/sound'}
-        ])
+      { from: './assets/PNG', to: './assets/PNG' },
+      { from: './assets/PNG', to: './assets/PNG' }
+    ])
   ],
   module: {
     rules: [
@@ -60,6 +61,13 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          version: '4.2.3', // ลองใส่รุ่นที่ทำงานได้
+        },
+      }),
+    ],
   },
 }
