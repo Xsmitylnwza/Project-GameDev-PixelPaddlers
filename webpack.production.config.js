@@ -50,7 +50,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './assets/PNG', to: './assets/PNG' },
-      { from: './assets/PNG', to: './assets/PNG' }
+      { from: './assets/Sound', to: './assets/Sound' }
     ])
   ],
   module: {
